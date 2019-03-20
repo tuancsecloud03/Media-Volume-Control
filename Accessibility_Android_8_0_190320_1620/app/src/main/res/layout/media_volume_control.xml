@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_shape">
+
+    <TextView
+        android:id="@+id/txtV_media_progress"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="2dp"
+        android:textColor="@android:color/primary_text_dark"
+        />
+
+    <SeekBar
+        android:id="@+id/sB_media_volume"  
+        android:layout_width="300dp"      
+        android:layout_height="wrap_content"        
+        android:layout_below="@id/txtV_media_progress"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="8dp"
+        android:max="10" />
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sB_media_volume"
+        android:layout_centerHorizontal="true"
+        android:background="@color/btn_background"
+        android:text="@string/close"
+        android:textColor="@android:color/primary_text_dark"
+        android:layout_marginTop="8dp"
+        />
+</RelativeLayout>
