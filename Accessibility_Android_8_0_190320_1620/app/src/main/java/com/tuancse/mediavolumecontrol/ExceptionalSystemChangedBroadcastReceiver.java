@@ -11,20 +11,25 @@ public class ExceptionalSystemChangedBroadcastReceiver extends BroadcastReceiver
 	@Override
 	public void onReceive(Context context, Intent intent) {
 
-		if (intent == null) {
-			return;
-		}
-
-		String action = intent.getAction();
-
-		if (action != null) {
-			
-			switch (action) {
-			
-			case BOOT_COMPLETED:
-				this.handleStartMediaVolumeService(context, intent);
-				break;
+		try {
+			if (intent == null) {
+				return;
 			}
+
+			String action = intent.getAction();
+
+			if (action != null) {
+
+				switch (action) {
+
+					case BOOT_COMPLETED:
+						this.handleStartMediaVolumeService(context, intent);
+						break;
+				}
+			}
+		}
+		catch (Exception ex)
+		{
 		}
 	}
 	

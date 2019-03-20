@@ -17,8 +17,13 @@ public class MainActivity extends AppCompatActivity {
 	
 	private void startMediaVolumeService()
 	{
-		Intent intentMediaVolumeService = new Intent(this, MediaVolumeService.class);
-		intentMediaVolumeService.setAction(MediaVolumeService.SHOW_MEDIA_VOLUME_CONTROL);
-		this.startForegroundService(intentMediaVolumeService);
+		try {
+			Intent intentMediaVolumeService = new Intent(this, MediaVolumeService.class);
+			intentMediaVolumeService.setAction(MediaVolumeService.SHOW_MEDIA_VOLUME_CONTROL);
+			this.startForegroundService(intentMediaVolumeService);
+		}
+		catch (Exception ex)
+		{
+		}
 	}
 }
