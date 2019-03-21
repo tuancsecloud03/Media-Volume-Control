@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\MyData\AndroidProjects\MediaVolumeControl_Android_7_0\app\libs\framework.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c6b4ae9d0950cd2b46433ef86c324333035b7e2e">
+        <dex dex="C:\MyData\AndroidProjects\MediaVolumeControl_Android_7_0\app\build\intermediates\pre-dexed\release\framework_c54302244af216b842c9d19b407aa9688433a3c7.jar" />
+    </item>
+
+</items>
