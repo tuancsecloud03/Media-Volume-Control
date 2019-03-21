@@ -79,8 +79,13 @@ public class MediaVolumeService extends NonstopIntentService {
 
     @Override
     public void onDestroy() {
-        // Unregister broadcast receivers
-        this.unregisterBroadcastReceivers();
+        try {
+            // Unregister broadcast receivers
+            this.unregisterBroadcastReceivers();
+        }
+        catch (Exception ex)
+        {
+        }
 
         super.onDestroy();
     }
@@ -265,7 +270,7 @@ public class MediaVolumeService extends NonstopIntentService {
 
         // Show media volume control
         Intent mediaVolumeBroadcastReceiverIntent = new Intent(this, MediaVolumeService.class);
-        mediaVolumeBroadcastReceiverIntent.setAction(MediaVolumeBroadcastReceiver.SHOW_MEDIA_VOLUME_CONTROL);
+        mediaVolumeBroadcastReceiverIntent.setAction(MediaVolumeService.SHOW_MEDIA_VOLUME_CONTROL);
         PendingIntent pendingStopIntent = PendingIntent.getForegroundService(this, 0,
                 mediaVolumeBroadcastReceiverIntent, 0);
         remoteViews.setOnClickPendingIntent(R.id.volume_notificationIcon,
@@ -273,7 +278,7 @@ public class MediaVolumeService extends NonstopIntentService {
 
         // Lock screen
         Intent lockScreenBroadcastReceiverIntent = new Intent(this, MediaVolumeService.class);
-        lockScreenBroadcastReceiverIntent.setAction(MediaVolumeBroadcastReceiver.LOCK_SCREEN_REQUEST);
+        lockScreenBroadcastReceiverIntent.setAction(MediaVolumeService.LOCK_SCREEN_REQUEST);
         PendingIntent pendingLockScreenIntent = PendingIntent.getForegroundService(this, 1,
                 lockScreenBroadcastReceiverIntent, 0);
         remoteViews.setOnClickPendingIntent(R.id.lock_notificationIcon,
@@ -281,7 +286,7 @@ public class MediaVolumeService extends NonstopIntentService {
 
         // Launch home screen
         Intent launchHomeScreenBroadcastReceiverIntent = new Intent(this, MediaVolumeService.class);
-        launchHomeScreenBroadcastReceiverIntent.setAction(MediaVolumeBroadcastReceiver.LAUNCH_HOME_SCREEN_REQUEST);
+        launchHomeScreenBroadcastReceiverIntent.setAction(MediaVolumeService.LAUNCH_HOME_SCREEN_REQUEST);
         PendingIntent pendingLaunchHSIntent = PendingIntent.getForegroundService(this, 2,
                 launchHomeScreenBroadcastReceiverIntent, 0);
         remoteViews.setOnClickPendingIntent(R.id.home_notificationIcon,

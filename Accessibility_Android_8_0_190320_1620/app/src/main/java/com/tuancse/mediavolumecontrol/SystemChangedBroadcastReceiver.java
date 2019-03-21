@@ -9,21 +9,23 @@ public class SystemChangedBroadcastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
-        if (intent == null) {
-            return;
-        }
-
-        String action = intent.getAction();
-
-        if (action != null) {
-
-            switch (action) {
-
-                case VOLUME_CHANGED_ACTION:
-                    this.handleUpdateMediaVolumeService(context, intent);
-                    break;
+        try {
+            if (intent == null) {
+                return;
             }
+
+            String action = intent.getAction();
+
+            if (action != null) {
+
+                switch (action) {
+
+                    case VOLUME_CHANGED_ACTION:
+                        this.handleUpdateMediaVolumeService(context, intent);
+                        break;
+                }
+            }
+        } catch (Exception ex) {
         }
     }
 

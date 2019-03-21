@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        applicationId "com.tuancse.mediavolumecontrol"
+        minSdkVersion 24
+        targetSdkVersion 24
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    api 'com.android.support:appcompat-v7:25.3.1'
+    api 'com.android.support.constraint:constraint-layout:1.0.2'
+    api 'junit:junit:4.12'
+    api files('libs/framework.jar')
+}
