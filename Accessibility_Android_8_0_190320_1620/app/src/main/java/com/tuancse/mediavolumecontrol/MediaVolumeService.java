@@ -266,7 +266,8 @@ public class MediaVolumeService extends NonstopIntentService {
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(MEDIA_VOLUME_NOTIFICATION_TITLE)
                 .setContentText(MEDIA_VOLUME_NOTIFICATION_TITLE)
-                .setOngoing(true).setTicker(MEDIA_VOLUME_NOTIFICATION_TITLE);
+                .setOngoing(true).setTicker(MEDIA_VOLUME_NOTIFICATION_TITLE)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
 
         // Show media volume control
         Intent mediaVolumeBroadcastReceiverIntent = new Intent(this, MediaVolumeService.class);
